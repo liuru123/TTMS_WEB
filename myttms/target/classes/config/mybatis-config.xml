@@ -15,7 +15,9 @@
         <typeAlias alias="ScheduleDetail" type="com.ttms.entity.ScheduleDetail"/>
         <typeAlias alias="Notice" type="com.ttms.entity.Notice"/>
         <typeAlias alias="Page" type="com.ttms.entity.Page"/>
-
+        <typeAlias alias="Ticket" type="com.ttms.entity.Ticket"/>
+        <typeAlias alias="Sale" type = "com.ttms.entity.Sale" />
+        <typeAlias alias="Sale_item" type = "com.ttms.entity.Sale_item"/>
     </typeAliases>
 
 

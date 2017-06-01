@@ -200,7 +200,10 @@
             &nbsp;
             <input type="submit" value="购票"　id="sbutton"/>
 
+            <div>
+                <input>
 
+            </div>
 
             <div class="container">
                 <div class="container_wrap">

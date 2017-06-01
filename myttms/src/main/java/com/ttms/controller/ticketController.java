@@ -1,8 +1,6 @@
 package com.ttms.controller;
 
-import com.ttms.entity.Play;
-import com.ttms.entity.Schedule;
-import com.ttms.entity.Studio;
+import com.ttms.entity.*;
 import com.ttms.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,24 +28,42 @@ public class ticketController {
         PlayService playService;
         @Autowired
         ScheduleService scheduleService;
+        @Autowired
+        TicketService ticketService;
+        @Autowired
+        SaleService saleService;
         @RequestMapping("/Seat")
         public ModelAndView seatShowPage(HttpServletRequest request){
 
-            System.out.println("aaaa");
+            Sale sale = new Sale();
+            sale.setEmp_id(12);
+            sale.setSale_time("2016-1-1");
+            saleService.insertSale(sale);
+
+             Ticket ticket = new Ticket();
+
+             ticket.setSched_id(1);
+             ticket.setSeat_id(11);
+             ticket.setTicket_price(111);
+             ticket.setTicket_locked_time("2016-10-10");
+             ticket.setTicket_status(1);
+
+             ticketService.insertTicket(ticket);
+
             List<Studio> list = studioService.selectStudio();
-            System.out.println("bbb");
             List<Play> playList  =playService.selectPlay();
-           System.out.println("dsdsdsds"+playList);
             List<Schedule> scheduleList = scheduleService.selectSchedule();
 
-
-
             request.setAttribute("list", list);
-           request.setAttribute("play",playList);
+            request.setAttribute("play",playList);
             request.setAttribute("schedule",scheduleList);
             return new ModelAndView("/manager/ticket/Seat");
 
         }
+
+
+
+
 
 //        @RequestMapping("/seatsshow")
 //        public ModelAndView seatsShowPage(HttpServletRequest request){
